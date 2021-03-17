@@ -1,0 +1,11 @@
+Requirements:
+Make sure to have visdom installed (pip install visdom)
+
+To run:
+Change the lines marked root directory to the right directories in the make_list.py file and run python make_list.py in the list directory to generate the feature path list
+
+python -m visdom.server (runs visdom server, navigate to http://localhost:8097 in your browser to see the results of training)
+
+run python main.py to train
+
+run python infer.py to test

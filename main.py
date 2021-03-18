@@ -25,14 +25,14 @@ import option
 
 from utils import Visualizer
 
-# torch.set_default_tensor_type('torch.cuda.FloatTensor')
+torch.set_default_tensor_type('torch.cuda.FloatTensor')
 # torch.set_default_tensor_type('torch.FloatTensor')
 viz = Visualizer(env='DeepMIL', use_incoming_socket=True)
 
 if __name__ == '__main__':
     args = option.parser.parse_args()
-    # device = torch.device("cuda")  # 将torch.Tensor分配到的设备的对象
-    device = torch.device("cpu")
+    device = torch.device("cuda")  # 将torch.Tensor分配到的设备的对象
+    # device = torch.device("cpu")
 
     train_nloader = DataLoader(Dataset(args, test_mode=False, is_normal=True),
                               batch_size=args.batch_size, shuffle=True,
@@ -49,7 +49,7 @@ if __name__ == '__main__':
     for name, value in model.named_parameters():
         print(name)
 
-    # torch.cuda.set_device(args.gpus)
+    torch.cuda.set_device(args.gpus)
     model = model.to(device)
 
     if not os.path.exists('./ckpt'):
